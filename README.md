@@ -1,4 +1,4 @@
-# 🌌 API Stress Lab — Frontend
+# 🌌 API Rate Limiter and Abuse Detection System
 
 Modern React-based frontend application for simulating API traffic bursts, rate limiting, and abuse detection behavior in real time.
 
