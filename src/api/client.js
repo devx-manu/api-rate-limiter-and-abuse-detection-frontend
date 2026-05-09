@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8081",
+  baseURL: "https://api-rate-limiter-and-abuse-detection.onrender.com",
 });
 
 // ✅ DO NOT show alerts here
