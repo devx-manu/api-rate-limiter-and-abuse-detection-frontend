@@ -1,70 +1,159 @@
-# Getting Started with Create React App
+# 🌌 API Stress Lab — Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Modern React-based frontend application for simulating API traffic bursts, rate limiting, and abuse detection behavior in real time.
 
-## Available Scripts
+Designed with a futuristic cyber-inspired UI and integrated with a secure Spring Boot backend.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The frontend provides an interactive experience for:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ⚡ Real-time API stress testing
+- 🚀 Burst traffic simulation
+- ⚠️ Rate limit visualization
+- 🚫 Abuse blocking detection
+- 📊 Live request statistics
+- 🎨 Futuristic monitoring dashboard
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Technology Stack
 
-### `npm run build`
+| Technology | Purpose |
+|---|---|
+| ⚛️ React | Frontend library |
+| ⚡ Vite | Build tool |
+| 🎨 Tailwind CSS | Styling |
+| 🌐 Axios | API communication |
+| 🧠 React Hooks | State management |
+| 🧭 React Router DOM | Routing |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ⚡ Single Request Testing
 
-### `npm run eject`
+- Send individual API requests
+- View instant API responses
+- Detect rate limiting behavior
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🚀 Burst Stress Testing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Simulate heavy traffic bursts
+- Trigger concurrent requests
+- Visualize backend protection mechanisms
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 📊 Real-Time Monitoring
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Allowed requests tracking
+- Rate-limited request tracking
+- Blocked request tracking
+- Failed request monitoring
 
-## Learn More
+### 🎨 UI/UX
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Futuristic cyber-themed interface
+- Glassmorphism dashboard
+- Animated progress indicators
+- Responsive layout
+- Dynamic live statistics
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🏗️ Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+src
+│
+├── api
+│   └── client.js
+│
+├── components
+│   └── TestPanel.jsx
+│
+├── pages
+├── styles
+├── App.jsx
+└── main.jsx
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## ⚙️ Environment Configuration
 
-### Making a Progressive Web App
+Create `.env`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```env
+VITE_API_URL=http://localhost:8081
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## ▶️ Running Locally
 
-### Deployment
+### 📥 Clone Repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+git clone https://github.com/yourusername/api-stress-lab-frontend.git
+```
 
-### `npm run build` fails to minify
+### 📂 Navigate to Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+cd api-stress-lab-frontend
+```
+
+### 📦 Install Dependencies
+
+```bash
+npm install
+```
+
+### ▶️ Start Development Server
+
+```bash
+npm run dev
+```
+
+Frontend runs on:
+
+```bash
+http://localhost:5173
+```
+
+---
+
+## 🔗 Backend Integration
+
+The frontend communicates with the Spring Boot backend through secured REST APIs using Axios.
+
+It visualizes backend security mechanisms including:
+
+- Token bucket rate limiting
+- Abuse detection
+- Temporary IP blocking
+- Request throttling
+
+---
+
+## 📈 Future Enhancements
+
+- 📊 Real-time analytics dashboard
+- 🌗 Dark/light theme switching
+- 🔔 Live websocket monitoring
+- 🐳 Docker deployment
+- ⚡ CI/CD integration
+- 📱 Mobile optimization
+- 🌐 Progressive Web App support
+- 📈 Attack pattern visualization
+
+---
+
+## 👨‍💻 Author
+
+### Manu SH
+
+Java Backend Developer | React Developer | DevOps Learner
