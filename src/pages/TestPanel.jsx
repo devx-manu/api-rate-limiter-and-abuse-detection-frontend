@@ -19,6 +19,28 @@ export default function TestPanel() {
   const [result, setResult] = useState(null);
 
   // =========================================
+  // EXTRACT ERROR RESPONSE
+  // =========================================
+
+  const getErrorData = (err) => {
+
+    if (!err.response) {
+      return null;
+    }
+
+    try {
+
+      return typeof err.response.data === "string"
+        ? JSON.parse(err.response.data)
+        : err.response.data;
+
+    } catch {
+
+      return null;
+    }
+  };
+
+  // =========================================
   // HANDLE SINGLE REQUEST
   // =========================================
 
@@ -33,13 +55,17 @@ export default function TestPanel() {
       setResult({
         type: "ALLOWED",
         title: "✅ REQUEST ALLOWED",
-        message: res.data || "Request processed successfully"
+        message: res.data?.message || "Request processed successfully"
       });
 
     } catch (err) {
 
-      // NETWORK / SERVER ERROR
-      if (!err.response) {
+      console.log(err.response);
+      console.log(err.response?.data);
+
+      const data = getErrorData(err);
+
+      if (!data) {
 
         setResult({
           type: "FAILED",
@@ -50,10 +76,11 @@ export default function TestPanel() {
         return;
       }
 
-      const errorType = err.response?.data?.error;
-      const message = err.response?.data?.message;
+      const errorType = data.error;
 
-      // TOKENS EMPTY
+      const message = data.message;
+
+      // RATE LIMITED
       if (errorType === "RATE_LIMIT") {
 
         setResult({
@@ -65,7 +92,7 @@ export default function TestPanel() {
         });
       }
 
-      // HARD BLOCKED
+      // BLOCKED
       else if (errorType === "BLOCKED") {
 
         setResult({
@@ -132,8 +159,13 @@ export default function TestPanel() {
 
         } catch (err) {
 
-          // NETWORK FAILURE
-          if (!err.response) {
+          console.log(err.response);
+          console.log(err.response?.data);
+
+          const data = getErrorData(err);
+
+          // NETWORK ERROR
+          if (!data) {
 
             failed++;
 
@@ -145,10 +177,9 @@ export default function TestPanel() {
             return;
           }
 
-          const errorType =
-            err.response?.data?.error;
+          const errorType = data.error;
 
-          // TOKENS EXHAUSTED
+          // RATE LIMITED
           if (errorType === "RATE_LIMIT") {
 
             rateLimited++;
@@ -159,7 +190,7 @@ export default function TestPanel() {
             }));
           }
 
-          // TEMP BLOCK
+          // BLOCKED
           else if (errorType === "BLOCKED") {
 
             blocked++;
@@ -170,7 +201,7 @@ export default function TestPanel() {
             }));
           }
 
-          // OTHER FAILURE
+          // FAILED
           else {
 
             failed++;
@@ -194,7 +225,9 @@ export default function TestPanel() {
 
     await Promise.all(requests);
 
+    // =========================================
     // FINAL SUMMARY
+    // =========================================
 
     let finalMessage = "";
 
@@ -274,16 +307,12 @@ export default function TestPanel() {
 
           <div className="flex flex-col items-center gap-8">
 
-            {/* SINGLE */}
-
             <button
               onClick={hitOnce}
               className="bg-gradient-to-r from-green-500 to-emerald-500 px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-lg"
             >
               ✅ Send Single Request
             </button>
-
-            {/* INPUT */}
 
             <div className="space-y-3">
 
@@ -303,8 +332,6 @@ export default function TestPanel() {
               />
 
             </div>
-
-            {/* BURST */}
 
             <button
               onClick={burstTest}
