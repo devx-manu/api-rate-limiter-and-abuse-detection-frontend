@@ -22,7 +22,7 @@ export default function TestPanel() {
 
     try {
 
-      const res = await api.get("/api/test");
+      await api.get("/api/test");
 
       setResult({
         type: "ALLOWED",
